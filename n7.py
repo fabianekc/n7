@@ -1,16 +1,48 @@
-import urllib, inflect, string
+#!/usr/bin/python
+import urllib, inflect, string, json, sys, Algorithmia
 
-# initialize and get content
-link = 'http://www.gutenberg.org/cache/epub/97/pg97.txt'
+# initialize
 p = inflect.engine()
-table = string.maketrans("", "")
-dict = urllib.urlopen("http://www.desiquintans.com/downloads/nounlist/nounlist.txt").read().split()
-ld = len(dict)
-text = urllib.urlopen(link).read()
-
+text = ""
+start_line = -1
+end_line = -1
 new_text = []
 new_line = []
-for line in text.split('\n'):
+table = string.maketrans("", "")
+dict_url = "https://raw.githubusercontent.com/fabianekc/n7/master/nounlist.txt"
+
+# parse input; sample URL: 'http://www.gutenberg.org/cache/epub/97/pg97.txt'
+input = json.loads(str(sys.argv[1]))
+if 'url' in input:
+    text = urllib.urlopen(input['url']).read()
+    # using html2text from Algorithmia
+    #client = Algorithmia.client(input['auth'])
+    #text = client.algo('util/Html2Text/0.1.3').pipe(input['url'])
+elif 'text' in input:
+    text = input['text']
+else:
+    text = urllib.urlopen(input).read()
+if 'dict' in input:
+    dict_url = input['dict']
+if 'start' in input:
+    start_line = input['start']
+if 'end' in input:
+    end_line = input['end']
+if text == "":
+    print("Error: no input text provided")
+    sys.exit()
+text = text.decode('utf-8')
+text = text.encode('ascii', 'replace')
+text_split = text.split('\n')
+if end_line > -1:
+    text_split = text_split[0:end_line]
+if start_line > -1:
+    text_split = text_split[start_line:]
+dict = urllib.urlopen(dict_url).read().split()
+ld = len(dict)
+
+# iterate over text
+for line in text_split:
     for word in line.split():
         # when replacing words we need to take care for
         # - punc: punctuation

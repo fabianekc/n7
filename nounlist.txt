@@ -160,6 +160,7 @@ base
 baseball
 basement
 basin
+basis
 basket
 basketball
 bass
@@ -423,6 +424,7 @@ cinema
 circle
 circulation
 cirrus
+citizen
 citizenship
 city
 clam
@@ -494,6 +496,7 @@ congo
 conifer
 connection
 consonant
+constitution
 continent
 control
 cook
@@ -632,6 +635,7 @@ digger
 digital
 dill
 dime
+dimension
 dimple
 dinghy
 dinner
@@ -702,6 +706,7 @@ earth
 earthquake
 ease
 east
+ebook
 edge
 edger
 editor
@@ -764,11 +769,11 @@ eyebrow
 eyelash
 eyeliner
 face
-facilities
+facility
 fact
 factory
 fahrenheit
-fairies
+fairy
 fall
 family
 fan
@@ -1033,6 +1038,7 @@ house
 hovercraft
 hub
 hubcap
+humanity
 humidity
 humor
 hurricane
@@ -1049,6 +1055,8 @@ icon
 idea
 ikebana
 illegal
+image
+imagination
 imprisonment
 improvement
 impulse
@@ -1611,6 +1619,7 @@ product
 production
 professor
 profit
+project
 promotion
 propane
 property
@@ -1688,6 +1697,7 @@ red
 reduction
 refrigerator
 refund
+region
 regret
 reindeer
 relation
@@ -1705,6 +1715,7 @@ respect
 responsibility
 rest
 restaurant
+restriction
 result
 retailer
 revolve
@@ -1807,6 +1818,7 @@ seat
 second
 secret
 secretary
+section
 secure
 security
 seed
@@ -1870,6 +1882,7 @@ single
 sink
 sister
 sister-in-law
+site
 size
 skate
 skiing
@@ -2261,6 +2274,7 @@ wealth
 weapon
 weasel
 weather
+web
 wedge
 wednesday
 weed
