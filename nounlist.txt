@@ -1365,6 +1365,7 @@ nancy
 napkin
 narcissus
 nation
+nature
 neck
 need
 needle
