@@ -1,9 +1,15 @@
 #!/usr/bin/python
 import urllib, inflect, string, json, sys, Algorithmia
 
+# tests
+#   python n7.py '{"h2t":"http://slashdot.org", "auth":"API_KEY"}'
+#   python n7.py '{"url":"http://derstandard.at"}'
+#   python n7.py '{"text":"life is a miracle"}'
+
 # initialize
 p = inflect.engine()
 text = ""
+offset = 7
 start_line = -1
 end_line = -1
 new_text = []
@@ -26,6 +32,8 @@ elif 'text' in input:
     text = input['text']
 else:
     text = urllib.urlopen(input).read()
+if 'offset' in input:
+    offset = input['offset']
 if 'dict' in input:
     dict_url = input['dict']
 if 'start' in input:
@@ -35,7 +43,8 @@ if 'end' in input:
 if text == "":
     print("Error: no input text provided")
     sys.exit()
-text = text.decode('utf-8')
+if isinstance(text, str):
+    text = text.decode('utf-8')
 text = text.encode('ascii', 'replace')
 text_split = text.split('\n')
 if end_line > -1:
@@ -61,14 +70,14 @@ for line in text_split:
         if (new.lower() in dict):
             if punc == word:
                 if sipl:
-                    final = p.plural(dict[(dict.index(new.lower())+7)%ld])
+                    final = p.plural(dict[(dict.index(new.lower())+offset)%ld])
                 else:
-                    final = dict[dict.index(new.lower())+7]
+                    final = dict[dict.index(new.lower())+offset]
             else:
                 if sipl:
-                    final = word.replace(punc, p.plural(dict[(dict.index(new.lower())+7)%ld]))
+                    final = word.replace(punc, p.plural(dict[(dict.index(new.lower())+offset)%ld]))
                 else:
-                    final = word.replace(punc, dict[(dict.index(new.lower())+7)%ld])
+                    final = word.replace(punc, dict[(dict.index(new.lower())+offset)%ld])
             if new.lower() != new:
                 if new.upper() == new:
                     final = final.upper()
