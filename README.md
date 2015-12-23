@@ -24,7 +24,7 @@ Download this repository and run the following command on your shell to generate
 The following options are supported:
 * `url`: link to a file to be processed (e.g., "http://www.gutenberg.org/cache/epub/97/pg97.txt")  
 * `text`: plain text to be processed (e.g., "this is a text")  
-* `html2text`: link to a file that is pre-processed by Algorithmia's html2text algorithm (i.e., strip of all html tags) and then n+7 processed  
+* `h2t`: link to a file that is pre-processed by Algorithmia's [html2text algorithm](https://algorithmia.com/algorithms/util/Html2Text) (i.e., strip of all html tags) and then n+7 processed  
 * `dict`: dictionary file to use for replacing nouns; the default value is to use the list of nouns provided in this Github repo (the original list of nouns is from http://www.desiquintans.com/nounlist  - downloaded on Dec 21s, 2015; I like the idea of a simple list with only the most commonly used but added anyway a few words)
 * `start`: first line to be processed (0 based)  
 * `end`: last line to be processed (0 based)

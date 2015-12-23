@@ -1201,6 +1201,7 @@ libra
 library
 license
 lier
+life
 lift
 light
 lightning
@@ -1323,6 +1324,7 @@ mini-skirt
 minister
 mint
 minute
+miracle
 mirror
 missile
 mist

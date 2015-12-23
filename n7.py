@@ -15,9 +15,13 @@ dict_url = "https://raw.githubusercontent.com/fabianekc/n7/master/nounlist.txt"
 input = json.loads(str(sys.argv[1]))
 if 'url' in input:
     text = urllib.urlopen(input['url']).read()
-    # using html2text from Algorithmia
-    #client = Algorithmia.client(input['auth'])
-    #text = client.algo('util/Html2Text/0.1.3').pipe(input['url'])
+elif 'h2t' in input:
+    if 'auth' in input:
+        client = Algorithmia.client(input['auth'])
+        text = client.algo('util/Html2Text/0.1.3').pipe(input['h2t'])
+    else:
+        print("Error: provide authentication when using the html2text preprocessing from Algorithmia")
+        sys.exit()
 elif 'text' in input:
     text = input['text']
 else:
